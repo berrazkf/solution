@@ -1,0 +1,27 @@
+import random
+
+# Функция приспособленности
+def fitness_function(solution):
+    # Вычисление приспособленности
+    return fitness_score
+
+# Генетический алгоритм
+def genetic_algorithm():
+    population = generate_initial_population()
+    fitness_scores = [fitness_function(solution) for solution in population]
+    best_solution = select_best_solution(population, fitness_scores)
+    while not termination_condition():
+        new_population = []
+        while len(new_population) < population_size:
+            parent1, parent2 = select_parents(population, fitness_scores)
+            child = crossover(parent1, parent2)
+            mutate(child)
+            new_population.append(child)
+        population = new_population
+        fitness_scores = [fitness_function(solution) for solution in population]
+        best_solution = select_best_solution(population, fitness_scores)
+    return best_solution
+
+# Запуск генетического алгоритма
+best_solution = genetic_algorithm()
+print(best_solution)
